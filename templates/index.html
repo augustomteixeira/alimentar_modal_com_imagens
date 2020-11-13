@@ -1,9 +1,47 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
 
     <body>
-        <button type="button" class="btn btn-block btn-success">Alimentar Modal</button>
+
+        <div class="card">
+            <div class="card-header">
+                Alimente o modal
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Algumas imagens serão exibidas no modal</h5>
+                <p class="card-text">Clique no botão abaixo para alimentar o modal.</p>
+                <a id="button_alimentar_modal" href="#" class="btn btn-primary">Alimentar Modal</a>
+            </div>
+        </div>
+
+        
+
+        <div
+        id="modal_de_imagens" class="modal fade"
+        role="dialog" tabindex="-1" data-backdrop="static">
+            <div class="modal-dialog modal-lg">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal de Imagens</h4>
+                    </div>
+                    
+                    <div class="modal-body">
+                        
+                        
+                    </div>
+
+                    <div class="modal-footer">
+                        <button id="fechar_modal_galeria_foto_upload_pessoa" name="fechar_modal_resultado_pesquisa_envolvidos_peca" type="button"
+                            class="btn btn-default" data-dismiss="modal">Fechar</button>
+
+                    </div>
+                </div>
+            </div>
+</div>
+
     </body>
 </html>
