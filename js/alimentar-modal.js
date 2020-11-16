@@ -1,4 +1,4 @@
-$(document).on('click', '#button-alimentar-modal', function (e) {
+$(document).on('click', '#button-alimentar-modal-arquivo-imagem', function (e) {
 
     let imagem3 = document.createElement('img');
     imagem3.setAttribute('src', '../img/imagem3.jpg');
