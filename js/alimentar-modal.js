@@ -1,4 +1,6 @@
 $(document).on('click', '#button-alimentar-modal-arquivo-imagem', function (e) {
+    carregarImagemArquivo('../img/imagem1.jpg');
+    carregarImagemArquivo('../img/imagem2.jpg');
     carregarImagemArquivo('../img/imagem3.jpg');
     carregarImagemArquivo('../img/imagem4.jpg');
     carregarImagemArquivo('../img/imagem5.jpg');
@@ -16,6 +18,8 @@ function carregarImagemArquivo (caminho) {
 }
 
 $(document).on('click', '#button-alimentar-modal-codigo-base64', function (e) {
+    carregarImagemBase64('../arquivos/imagem1.txt');
+    carregarImagemBase64('../arquivos/imagem2.txt');
     carregarImagemBase64('../arquivos/imagem3.txt');
     carregarImagemBase64('../arquivos/imagem4.txt');
     carregarImagemBase64('../arquivos/imagem5.txt');
