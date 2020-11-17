@@ -4,52 +4,58 @@
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/style.css">
     </head>
 
     <body>
-
-        <div class="card">
-            <div class="card-header">
-                Alimente o modal
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Algumas imagens serão exibidas no modal</h5>
-                <p class="card-text">Clique em um dos botões abaixo para alimentar o modal.</p>
-                <a id="button-alimentar-modal-arquivo-imagem" href="#" class="btn btn-outline-primary" title="Alimentar modal carregando arquivos de imagem"> 
-                    <i class="fa fa-image"></i></a>
-                <a id="button-alimentar-modal-codigo-base64" href="#" class="btn btn-outline-primary" title="Alimentar modal a partir do código em Base64">
-                    <i class="fa fa-file"></i></a>
-            </div>
-        </div>
-
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Alimente o modal</strong>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Algumas imagens serão exibidas no modal</h5>
+                        <p class="card-text">Clique em um dos botões abaixo para alimentar o modal.</p>
+                        <a id="button-alimentar-modal-arquivo-imagem" href="#" class="btn btn-outline-primary" title="Alimentar modal carregando arquivos de imagem"> 
+                            <i class="fa fa-image"></i></a>
+                        <a id="button-alimentar-modal-codigo-base64" href="#" class="btn btn-outline-primary" title="Alimentar modal a partir do código em Base64">
+                            <i class="fa fa-file"></i></a>
+                        <a id="button-alimentar-modal-imagem-checkbox" href="#" class="btn btn-outline-primary" title="Alimentar modal com imagens checkbox">
+                            <i class="fa fa-check-circle"></i></a>
+                    </div>
+                </div>
         
-
-        <div id="modal-de-imagens" class="modal fade" role="dialog" tabindex="-1" data-backdrop="static">
-            <div class="modal-dialog modal-lg">
-
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modal de Imagens</h4>
-                    </div>
-                    
-                    <div class="modal-body">
-                        <div id="div-imagens">
+                <div id="modal-de-imagens" class="modal fade" role="dialog" tabindex="-1" data-backdrop="static">
+                    <div class="modal-dialog modal-lg">
+        
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Modal de Imagens</h4>
+                            </div>
                             
+                            <div class="modal-body">
+                                <div id="div-imagens">
+                                    
+                                </div>
+                            </div>
+        
+                            <div class="modal-footer">
+                                <button id="fechar-modal-de-imagens" name="fechar-modal-de-imagens" type="button"
+                                    class="btn btn-default" data-dismiss="modal">Fechar</button>
+        
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button id="fechar-modal-de-imagens" name="fechar-modal-de-imagens" type="button"
-                            class="btn btn-default" data-dismiss="modal">Fechar</button>
-
                     </div>
                 </div>
             </div>
-        </div>
+        </div>    
+        
 
         <script src="https://code.jquery.com/jquery-3.5.0.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script type="text/javascript" src="../js/alimentar-modal.js"></script>
+        <script type="text/javascript" src="../js/style-image-checkbox.js"></script>
     </body>
 </html>
