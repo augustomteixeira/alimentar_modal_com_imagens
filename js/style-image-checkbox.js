@@ -14,8 +14,6 @@ $(document).on('click', '.image-checkbox', function (e) {
     $(this).toggleClass('image-checkbox-checked');
     let input = $(this).find('input[type="checkbox"]');
     input.prop("checked",!input.prop("checked"))
-    
-    console.log(input.val());
 
     e.preventDefault();
 });
