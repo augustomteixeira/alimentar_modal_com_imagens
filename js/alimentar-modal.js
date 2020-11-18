@@ -100,31 +100,33 @@ $(document).on('click', '#escolher-animes', function (e) {
     let inputs = $('input[name="input-imagem"]:checked');
 
     inputs.each(function () {
-        let li = document.createElement('li');
-        li.setAttribute('class', 'lista-animes-favoritos list-group-item d-flex justify-content-between align-items-center');
-        li.appendChild(document.createTextNode($(this).attr('data-anime')));
-
-        
-        let div = document.createElement('div');
-        div.setAttribute('class', 'image-parent');
-
-        let img = document.createElement('img');
-        let src = $(this).closest('label').find('.imagem-modal').attr('src');
-        img.setAttribute('src', src);
-        img.setAttribute('class', 'img-fluid');
-
-        div.appendChild(img);
-        li.appendChild(div);
-        $('#lista-animes-favoritos').append(li);
+        criarLiAnimeFavorito($(this).attr('data-anime'), $(this).closest('label').find('.imagem-modal').attr('src'));
     });
 
     if (inputs.length == 0) {
-        console.log('nenhum anime foi escolhido')
+        criarLiAnimeFavorito('Você não escolheu nenhum anime!', '../img/imagem10.gif');
     }
 
     $('#div-card-animes-favoritos').show();
     limparModal();
 });
+
+function criarLiAnimeFavorito(descricao, src) {
+    let li = document.createElement('li');
+    li.setAttribute('class', 'lista-animes-favoritos list-group-item d-flex justify-content-between align-items-center');
+    li.appendChild(document.createTextNode(descricao));
+
+    let div = document.createElement('div');
+    div.setAttribute('class', 'image-parent');
+
+    let img = document.createElement('img');
+    img.setAttribute('src', src);
+    img.setAttribute('class', 'img-fluid');
+
+    div.appendChild(img);
+    li.appendChild(div);
+    $('#lista-animes-favoritos').append(li);
+}
 
 function limparModal() {
     $('.image-checkbox').remove();
