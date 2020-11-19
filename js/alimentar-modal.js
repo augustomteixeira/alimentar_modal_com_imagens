@@ -46,6 +46,22 @@ $(document).on('click', '#button-alimentar-modal-imagem-checkbox', function (e) 
     $('#modal-de-imagens').modal('show');
 });
 
+$(document).on('click', '#button-alimentar-modal-imagem-radio', function (e) {
+    carregarImagemRadioButton('../arquivos/imagem1.txt', 'Fullmetal Alchemist');
+    carregarImagemRadioButton('../arquivos/imagem2.txt', 'Death Note');
+    carregarImagemRadioButton('../arquivos/imagem3.txt', 'Dragon Ball');
+    carregarImagemRadioButton('../arquivos/imagem4.txt', 'Naruto');
+    carregarImagemRadioButton('../arquivos/imagem5.txt', 'Yu Yu Hakusho');
+    carregarImagemRadioButton('../arquivos/imagem6.txt', 'InuYasha');
+    carregarImagemRadioButton('../arquivos/imagem7.txt', 'Cavaleiros do Zodíaco');
+    carregarImagemRadioButton('../arquivos/imagem8.txt', 'Shingeki no Kyojin');
+    carregarImagemRadioButton('../arquivos/imagem9.txt', 'Digimon');
+
+    $('#escolher-animes').show();
+    $('#titulo-modal').text('Escolha seu anime predileto');
+    $('#modal-de-imagens').modal('show');
+});
+
 function carregarImagemCheckBox (caminho, anime) {
     $.get(caminho, 'text', function (conteudo) {
         let label = document.createElement('label');
@@ -63,6 +79,29 @@ function carregarImagemCheckBox (caminho, anime) {
 
         label.appendChild(imagem);
         label.appendChild(input);
+
+        $('#div-imagens').append(label);
+    });
+}
+
+function carregarImagemRadioButton (caminho, anime) {
+    $.get(caminho, 'text', function (conteudo) {
+        let label = document.createElement('label');
+        label.setAttribute('class', 'image-radio');
+
+        let imagem = document.createElement('img');
+        imagem.setAttribute('src', conteudo);
+        imagem.setAttribute('width', 240);
+        imagem.setAttribute('class', 'img-responsive img-thumbnail preview-img imagem-modal');
+
+        let input = document.createElement('input');
+        input.setAttribute('type', 'radio');
+        input.setAttribute('name', 'input-imagem');
+        input.setAttribute('data-anime', anime);
+
+        label.appendChild(imagem);
+        label.appendChild(input);
+
         $('#div-imagens').append(label);
     });
 }
@@ -96,16 +135,26 @@ $(document).on('click', '#fechar-card-animes-favoritos', function (e) {
 
 $(document).on('click', '#escolher-animes', function (e) {
     $('.lista-animes-favoritos').remove();
+    $('#mensagem-animes-favoritos').remove();
+
+    let div = $('#div-card-header-animes-favoritos');
+    let strong = document.createElement('strong');
+    strong.setAttribute('id', 'mensagem-animes-favoritos');
 
     let inputs = $('input[name="input-imagem"]:checked');
+    if (inputs.length == 0) {
+        strong.appendChild(document.createTextNode('Estou decepcionado'));
+        criarLiAnimeFavorito('Você não escolheu nenhum anime!', '../img/imagem10.gif');
+    } else if (inputs.length == 1) {
+        strong.appendChild(document.createTextNode('Seu anime predileto é'));
+    } else {
+        strong.appendChild(document.createTextNode('Seus animes favoritos são'));
+    }
+    div.append(strong);
 
     inputs.each(function () {
         criarLiAnimeFavorito($(this).attr('data-anime'), $(this).closest('label').find('.imagem-modal').attr('src'));
     });
-
-    if (inputs.length == 0) {
-        criarLiAnimeFavorito('Você não escolheu nenhum anime!', '../img/imagem10.gif');
-    }
 
     $('#div-card-animes-favoritos').show();
     limparModal();
@@ -130,6 +179,7 @@ function criarLiAnimeFavorito(descricao, src) {
 
 function limparModal() {
     $('.image-checkbox').remove();
+    $('.image-radio').remove();
     $('.imagem-modal').remove();
 }
 
