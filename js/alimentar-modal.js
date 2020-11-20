@@ -142,6 +142,7 @@ $(document).on('click', '#escolher-animes', function (e) {
     strong.setAttribute('id', 'mensagem-animes-favoritos');
 
     let inputs = $('input[name="input-imagem"]:checked');
+
     if (inputs.length == 0) {
         strong.appendChild(document.createTextNode('Estou decepcionado'));
         criarLiAnimeFavorito('Você não escolheu nenhum anime!', '../img/imagem10.gif');
@@ -150,6 +151,7 @@ $(document).on('click', '#escolher-animes', function (e) {
     } else {
         strong.appendChild(document.createTextNode('Seus animes favoritos são'));
     }
+    
     div.append(strong);
 
     inputs.each(function () {
